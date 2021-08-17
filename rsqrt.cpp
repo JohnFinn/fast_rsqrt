@@ -7,16 +7,13 @@ float rsqrt(float n) {
 }
 
 float fast_rsqrt(float number) {
-    long i;
-    float x2, y;
-    const float threehalfs = 1.5F;
+    float y = number;
+    int& log_y = reinterpret_cast<int&>( y );
+    log_y = 0x5f3759df - ( log_y >> 1 );
 
-    x2 = number * 0.5F;
-    y = number;
-    i = *(long*) &y;
-    i = 0x5f3759df - ( i >> 1 );
-    y = *(float*) &i;
-    y = y * ( threehalfs - ( x2 * y * y ));
+    //const float threehalfs = 1.5F;
+    //float x2 = number * 0.5F;
+    //y = y * ( threehalfs - ( x2 * y * y ));
     //y = y * ( threehalfs - ( x2 * y * y ));
     //y = y * ( threehalfs - ( x2 * y * y ));
     return y;
