@@ -2,4 +2,4 @@
 
 float rsqrt(float);
 
-float Q_rsqrt(float);
+float fast_rsqrt(float);

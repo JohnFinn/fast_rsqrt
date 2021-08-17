@@ -3,5 +3,5 @@
 
 TEST(inverse_square_root, test) {
     for (float f = 0.1; f < 100; f += 0.1)
-        EXPECT_FLOAT_EQ(Q_rsqrt(f), rsqrt(f));
+        EXPECT_FLOAT_EQ(fast_rsqrt(f), rsqrt(f));
 }

@@ -15,7 +15,7 @@ static void BM_rsqrt(benchmark::State& state)
     }
 }
 
-static void BM_Q_rsqrt(benchmark::State& state)
+static void BM_fast_rsqrt(benchmark::State& state)
 {
     std::random_device rd;  //Will be used to obtain a seed for the random number engine
     std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
@@ -24,11 +24,11 @@ static void BM_Q_rsqrt(benchmark::State& state)
         //state.PauseTiming();
         //float num = dis(gen);
         //state.ResumeTiming();
-        Q_rsqrt(123.6789);
+        fast_rsqrt(123.6789);
     }
 }
 
 BENCHMARK(BM_rsqrt);
-BENCHMARK(BM_Q_rsqrt);
+BENCHMARK(BM_fast_rsqrt);
 
 BENCHMARK_MAIN();
